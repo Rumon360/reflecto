@@ -8,10 +8,14 @@ import SidebarContent from "./content";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import ProjectSelector from "./project-selector";
-import { Project } from "@prisma/client";
+import { Project, Role } from "@prisma/client";
 
 type MobileSidebarProps = {
-  data: Project[];
+  data: (Project & {
+    members: {
+      role: Role;
+    }[];
+  })[];
 };
 
 function MobileSidebar({ data }: MobileSidebarProps) {

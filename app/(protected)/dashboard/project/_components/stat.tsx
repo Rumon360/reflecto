@@ -11,13 +11,18 @@ function ProjectStat({ reviews }: Props) {
   const averageRating =
     totalReviews > 0
       ? (
-          reviews.reduce((sum, review) => sum + review.rating, 0) / totalReviews
+          reviews.reduce((sum, review) => sum + (review.rating ?? 0), 0) /
+          totalReviews
         ).toFixed(1)
       : 0;
   const highestRating =
-    totalReviews > 0 ? Math.max(...reviews.map((review) => review.rating)) : 0;
+    totalReviews > 0
+      ? Math.max(...reviews.map((review) => review.rating ?? 0))
+      : 0;
   const lowestRating =
-    totalReviews > 0 ? Math.min(...reviews.map((review) => review.rating)) : 0;
+    totalReviews > 0
+      ? Math.min(...reviews.map((review) => review.rating ?? 0))
+      : 0;
 
   return (
     <Card className="w-full max-w-xl relative noise bg-muted/10 px-6 py-4 rounded-lg space-y-6 border shadow">

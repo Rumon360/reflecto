@@ -1,21 +1,21 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ReviewForm } from "@prisma/client";
 import { Settings } from "lucide-react";
 import React from "react";
 import ReviewSettingsCard from "./review-settings";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 type Props = {
   reviewCardSettings: ReviewForm;
+  projectId: string;
+  setReviewCardSettings: (review: ReviewForm) => void;
 };
 
-function MobileReviewSettings({ reviewCardSettings }: Props) {
+function MobileReviewSettings({
+  reviewCardSettings,
+  projectId,
+  setReviewCardSettings,
+}: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,7 +24,11 @@ function MobileReviewSettings({ reviewCardSettings }: Props) {
         </Button>
       </DialogTrigger>
       <DialogContent className="w-full">
-        <ReviewSettingsCard reviewCardSettings={reviewCardSettings} />
+        <ReviewSettingsCard
+          reviewCardSettings={reviewCardSettings}
+          setReviewCardSettings={setReviewCardSettings}
+          projectId={projectId}
+        />
       </DialogContent>
     </Dialog>
   );

@@ -21,7 +21,11 @@ function Reviews({ reviewForm, projectId, token }: ReviewsProps) {
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-xl font-semibold">Review Form</h2>
         <div className="xl:hidden block">
-          <MobileReviewSettings reviewCardSettings={reviewCardSettings} />
+          <MobileReviewSettings
+            reviewCardSettings={reviewCardSettings}
+            setReviewCardSettings={setReviewCardSettings}
+            projectId={projectId}
+          />
         </div>
       </div>
       <p className="text-sm text-muted-foreground mb-6">
