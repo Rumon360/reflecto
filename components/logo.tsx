@@ -16,7 +16,7 @@ function Logo({
 }) {
   return (
     <Link href={href} className={cn(pirataOne.className, className)}>
-      <span>Reflacto</span>
+      <span>Reflecto</span>
     </Link>
   );
 }

@@ -49,6 +49,7 @@ function CreateProjectWrapper({ children }: CreateProjectWrapperProps) {
     onSuccess: () => {
       toast.success("Project created successfully");
       form.reset();
+      setOpen(false);
     },
     onError: (error) => {
       toast.error(error);

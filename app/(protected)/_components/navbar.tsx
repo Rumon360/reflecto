@@ -7,6 +7,7 @@ import ProjectSelector from "./sidebar/project-selector";
 import CreateProjectWrapper from "./wrapper/create-project";
 import { getProjects } from "@/actions/project/get";
 import { redirect } from "next/navigation";
+import { Plus } from "lucide-react";
 
 async function Navbar() {
   const { data, error } = await getProjects();
@@ -25,7 +26,8 @@ async function Navbar() {
         <div className="flex items-center gap-2">
           <CreateProjectWrapper>
             <Button>
-              <span>Create a project</span>
+              <Plus className="size-4" />
+              <span className="hidden sm:block">Create a project</span>
             </Button>
           </CreateProjectWrapper>
           <ModeToggle />
